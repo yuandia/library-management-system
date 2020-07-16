@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo4.mapper.BookMapper">
+
+    <resultMap id="BaseResultMap" type="com.example.demo4.entity.Book">
+        <result column="id" jdbcType="INTEGER" property="bookId" />
+        <result column="book_name" jdbcType="VARCHAR" property="bookName" />
+        <result column="creat_date" jdbcType="VARCHAR" property="creatDate" />
+    </resultMap>
+
+    <select id="getList" resultMap="BaseResultMap">
+        select * from book
+    </select>
+
+    <select id="setBook" resultMap="BaseResultMap">
+        INSERT INTO book(book_name, creat_date) VALUES (#{bookName},#{creatDate})
+    </select>
+</mapper>
