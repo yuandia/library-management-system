@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo4.mapper.BookUserMapper">
+
+    <resultMap id="BaseResultMap" type="com.example.demo4.entity.BookUser">
+        <result column="id" jdbcType="INTEGER" property="id" />
+        <result column="book_name" jdbcType="VARCHAR" property="bookName" />
+        <result column="user_name" jdbcType="VARCHAR" property="userName" />
+        <result column="barrow_time" jdbcType="VARCHAR" property="barrowTime" />
+        <result column="back_time" jdbcType="VARCHAR" property="backTime" />
+        <result column="status" jdbcType="INTEGER" property="status" />
+    </resultMap>
+
+    <select id="getBookUserList" resultMap="BaseResultMap">
+        select * from book_user
+    </select>
+
+    <select id="addBookUser" resultMap="BaseResultMap">
+        INSERT INTO book_user(book_name, user_name, barrow_time, back_time, status) VALUES(#{bookName},#{userName},#{barrowTime},#{backTime},#{status})
+    </select>
+</mapper>
